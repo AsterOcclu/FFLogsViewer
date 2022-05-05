@@ -1,0 +1,18 @@
+{
+  "Author": "Aireil",
+  "Name": "FF Logs Viewer",
+  "Description": "View FF Logs ranking percentiles in-game. Add a context menu to open someone's logs.",
+  "Punchline": "View FF Logs ranking percentiles in-game.",
+  "RepoUrl": "https://github.com/Aireil/FFLogsViewer",
+  "IconUrl": "https://github.com/Aireil/FFLogsViewer/raw/master/res/icon.png",
+   "ImageUrls": [
+    "https://github.com/Aireil/FFLogsViewer/raw/master/res/banner.png"
+  ],
+  "Tags": [
+    "FFLogs",
+    "FFLog",
+    "FFLo",
+    "FFL"
+  ],
+  "Changelog": "- 2.0.4.0: Enable context menu button again.\n- 2.0.4.1: Warn when a metric is not supported by an encounter."
+}

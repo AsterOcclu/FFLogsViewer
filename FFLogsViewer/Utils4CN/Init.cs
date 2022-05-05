@@ -7,25 +7,24 @@ namespace Utils4CN
 {
     public class Init
     {
-        public DalamudPluginInterface pi;
+        public static bool IsCN()
+        {
+            var lang = DalamudApi.DataManager.Language;
+            return (uint)lang == 4 || lang.ToString() == "ChineseSimplified";
+        }
+
+        public DalamudPluginInterface Pi;
 
         public Init(DalamudPluginInterface pi) {
-            this.pi = pi;
-            this.pi.Create<DalamudApi>();
+            this.Pi = pi;
+            this.Pi.Create<DalamudApi>();
         }
 
         public void ReplaceDataIfCN()
         {
             if (IsCN()) {
-                ReplaceDcAndWorlds();
+                this.ReplaceDcAndWorlds();
             }
-        }
-
-
-        public static bool IsCN()
-        {
-            var lang = DalamudApi.DataManager.Language;
-            return (uint)lang == 4 || lang.ToString() == "ChineseSimplified";
         }
 
         public void ReplaceDcAndWorlds()
@@ -36,6 +35,7 @@ namespace Utils4CN
             {
                 item.IsPublic = false;
             }
+
             foreach (var mydc in ChineseServers.DataCenterMap.Values)
             {
                 var dc = gameDCs.GetRow(mydc.Id);
@@ -55,6 +55,5 @@ namespace Utils4CN
                 }
             }
         }
-
     }
 }

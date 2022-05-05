@@ -20,8 +20,8 @@ using Dalamud.Plugin;
 
 namespace Utils4CN
 {
-	internal class DalamudApi
-	{
+    internal class DalamudApi
+    {
         [PluginService] public static DalamudPluginInterface PluginInterface { get; private set; } = null!;
         [PluginService] public static BuddyList BuddyList { get; private set; } = null!;
         [PluginService] public static ChatGui ChatGui { get; private set; } = null!;
@@ -44,5 +44,5 @@ namespace Utils4CN
         [PluginService] public static SigScanner SigScanner { get; private set; } = null!;
         [PluginService] public static TargetManager TargetManager { get; private set; } = null!;
         [PluginService] public static ToastGui ToastGui { get; private set; } = null!;
-	}
+    }
 }
