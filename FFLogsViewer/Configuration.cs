@@ -88,21 +88,21 @@ public class Configuration : IPluginConfiguration
     {
         return new List<LayoutEntry>
         {
-            new() { Type = LayoutEntryType.Header, Alias = "Asphodelos", Expansion = "-", Zone = "-", Encounter = "-", Difficulty = "-" },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Erichthonios", EncounterId = 78, Difficulty = "Savage", DifficultyId = 101 },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Hippokampos", EncounterId = 79, Difficulty = "Savage", DifficultyId = 101 },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Phoinix", EncounterId = 80, Difficulty = "Savage", DifficultyId = 101 },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Hesperos", EncounterId = 81, Difficulty = "Savage", DifficultyId = 101 },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Hesperos II", EncounterId = 82, Difficulty = "Savage", DifficultyId = 101 },
-            new() { Type = LayoutEntryType.Header, Alias = "Ultimates (EW)", Expansion = "-", Zone = "-", Encounter = "-", Difficulty = "-" },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Ultimates (Legacy)", ZoneId = 43, Encounter = "The Unending Coil of Bahamut", EncounterId = 1060, Difficulty = "Normal", DifficultyId = 100, Alias = "UCoB" },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Ultimates (Legacy)", ZoneId = 43, Encounter = "The Weapon's Refrain", EncounterId = 1061, Difficulty = "Normal", DifficultyId = 100, Alias = "UwU" },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Ultimates (Legacy)", ZoneId = 43, Encounter = "The Epic of Alexander", EncounterId = 1062, Difficulty = "Normal", DifficultyId = 100, Alias = "TEA" },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Ultimates", ZoneId = 45, Encounter = "Dragonsong's Reprise", EncounterId = 1064, Difficulty = "Normal", DifficultyId = 100, Alias = "DSR" },
-            new() { Type = LayoutEntryType.Header, Alias = "Trials (Extreme)", Expansion = "-", Zone = "-", Encounter = "-", Difficulty = "-" },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Trials (Extreme)", ZoneId = 42, Encounter = "Zodiark", EncounterId = 1058, Difficulty = "Normal", DifficultyId = 100 },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Trials (Extreme)", ZoneId = 42, Encounter = "Hydaelyn", EncounterId = 1059, Difficulty = "Normal", DifficultyId = 100 },
-            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Trials (Extreme)", ZoneId = 42, Encounter = "Endsinger", EncounterId = 1063, Difficulty = "Normal", DifficultyId = 100 },
+            new() { Type = LayoutEntryType.Header, Alias = "万魔殿 边境之狱", Expansion = "-", Zone = "-", Encounter = "-", Difficulty = "-" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Erichthonios", EncounterId = 78, Difficulty = "Savage", DifficultyId = 101, Alias = "埃里克特翁尼亚斯" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Hippokampos", EncounterId = 79, Difficulty = "Savage", DifficultyId = 101, Alias = "鱼尾海马怪" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Phoinix", EncounterId = 80, Difficulty = "Savage", DifficultyId = 101, Alias = "菲尼克司" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Hesperos", EncounterId = 81, Difficulty = "Savage", DifficultyId = 101, Alias = "赫斯珀洛斯" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Asphodelos", ZoneId = 44, Encounter = "Hesperos II", EncounterId = 82, Difficulty = "Savage", DifficultyId = 101, Alias = "赫斯珀洛斯II" },
+            new() { Type = LayoutEntryType.Header, Alias = "绝境战 (EW)", Expansion = "-", Zone = "-", Encounter = "-", Difficulty = "-" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Ultimates (Legacy)", ZoneId = 43, Encounter = "The Unending Coil of Bahamut", EncounterId = 1060, Difficulty = "Normal", DifficultyId = 100, Alias = "巴哈姆特绝境战" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Ultimates (Legacy)", ZoneId = 43, Encounter = "The Weapon's Refrain", EncounterId = 1061, Difficulty = "Normal", DifficultyId = 100, Alias = "究极神兵绝境战" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Ultimates (Legacy)", ZoneId = 43, Encounter = "The Epic of Alexander", EncounterId = 1062, Difficulty = "Normal", DifficultyId = 100, Alias = "亚历山大绝境战" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Ultimates", ZoneId = 45, Encounter = "Dragonsong's Reprise", EncounterId = 1064, Difficulty = "Normal", DifficultyId = 100, Alias = "龙诗战争绝境战" },
+            new() { Type = LayoutEntryType.Header, Alias = "讨伐歼灭战: 高难度", Expansion = "-", Zone = "-", Encounter = "-", Difficulty = "-" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Trials (Extreme)", ZoneId = 42, Encounter = "Zodiark", EncounterId = 1058, Difficulty = "Normal", DifficultyId = 100, Alias = "佐迪亚克" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Trials (Extreme)", ZoneId = 42, Encounter = "Hydaelyn", EncounterId = 1059, Difficulty = "Normal", DifficultyId = 100, Alias = "海德林" },
+            new() { Type = LayoutEntryType.Encounter, Expansion = "Endwalker", Zone = "Trials (Extreme)", ZoneId = 42, Encounter = "Endsinger", EncounterId = 1063, Difficulty = "Normal", DifficultyId = 100, Alias = "讴歌终结之物" },
         };
     }
 
