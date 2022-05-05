@@ -53,23 +53,26 @@ public class HeaderBar
         var contentRegionAvailWidth = ImGui.GetContentRegionAvail().X;
         if (ImGui.GetWindowSize().X < minWindowSize || this.ResetSizeCount != 0)
         {
-            contentRegionAvailWidth = minWindowSize - (ImGui.GetStyle().WindowPadding.X * (isCN ? 1 : 2));
+            contentRegionAvailWidth = minWindowSize - (ImGui.GetStyle().WindowPadding.X * 2);
             this.ResetSizeCount--;
         }
 
-        var calcInputSize = (contentRegionAvailWidth - (ImGui.GetStyle().ItemSpacing.X * (isCN ? 1 : 2)) - buttonsWidth) / (isCN ? 2 : 3);
+        var calcInputSize = (contentRegionAvailWidth - (ImGui.GetStyle().ItemSpacing.X * 2) - buttonsWidth) / (isCN ? 2 : 3);
 
-        ImGui.SetNextItemWidth(calcInputSize);
+        ImGui.SetNextItemWidth(calcInputSize * 1.1F);
         ImGui.InputTextWithHint("##FirstName", isCN ? "Name" : "First Name", ref Service.CharDataManager.DisplayedChar.FirstName, 30, ImGuiInputTextFlags.CharsNoBlank);
 
         if (!isCN) {
             ImGui.SameLine();
             ImGui.SetNextItemWidth(calcInputSize);
             ImGui.InputTextWithHint("##LastName", "Last Name", ref Service.CharDataManager.DisplayedChar.LastName, 15, ImGuiInputTextFlags.CharsNoBlank);
+        } else {
+            ImGui.SameLine();
+            ImGui.Text("@");
         }
 
         ImGui.SameLine();
-        ImGui.SetNextItemWidth(calcInputSize);
+        ImGui.SetNextItemWidth(calcInputSize * 0.8F);
         ImGui.InputTextWithHint("##WorldName", "World", ref Service.CharDataManager.DisplayedChar.WorldName, 15, ImGuiInputTextFlags.CharsNoBlank);
 
         ImGui.SameLine();
