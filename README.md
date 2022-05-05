@@ -1,3 +1,9 @@
+# Update:
+
+支持中国服。
+Add support to Chinese DC.
+
+
 # FFLogsViewer
 
 Small plugin to view FFLogs ranking percentiles in-game using Dalamud provided by [XIVLauncher](https://github.com/goatcorp/FFXIVQuickLauncher).

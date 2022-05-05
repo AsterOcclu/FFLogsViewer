@@ -1,13 +1,14 @@
 {
   "Author": "Aireil",
   "Name": "FF Logs Viewer",
-  "Description": "View FF Logs ranking percentiles in-game. Add a context menu to open someone's logs.",
-  "Punchline": "View FF Logs ranking percentiles in-game.",
+  "Description": "在游戏内查询玩家FFLogs, 在各种菜单中提供快捷查询入口",
+  "Punchline": "在游戏内查询玩家的FFLogs数据, 支持国服",
   "RepoUrl": "https://github.com/Aireil/FFLogsViewer",
   "IconUrl": "https://github.com/Aireil/FFLogsViewer/raw/master/res/icon.png",
    "ImageUrls": [
     "https://github.com/Aireil/FFLogsViewer/raw/master/res/banner.png"
   ],
+  "DalamudApiLevel": 5,
   "Tags": [
     "FFLogs",
     "FFLog",
