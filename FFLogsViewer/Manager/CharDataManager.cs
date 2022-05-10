@@ -26,6 +26,10 @@ public class CharDataManager
 
     public static string? GetRegionName(string worldName)
     {
+        if (Utils4CN.Init.IsCN()) {
+            return "CN";
+        }
+
         var world = Service.DataManager.GetExcelSheet<World>()
                               ?.FirstOrDefault(
                                   x => x.Name.ToString().Equals(worldName, StringComparison.InvariantCultureIgnoreCase));
@@ -40,7 +44,8 @@ public class CharDataManager
             1 => "JP",
             2 => "NA",
             3 => "EU",
-            4 => "CN", // "Changed from OC"
+            4 => "OC",
+            7 => "CN",
             _ => null,
         };
     }

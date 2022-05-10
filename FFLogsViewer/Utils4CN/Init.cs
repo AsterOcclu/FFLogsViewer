@@ -31,7 +31,7 @@ namespace Utils4CN
         {
             var gameDCs = DalamudApi.DataManager.GetExcelSheet<WorldDCGroupType>()!;
             var gameWorlds = DalamudApi.DataManager.GetExcelSheet<World>()!;
-            foreach (var item in gameWorlds.Where(w => w.RowId < 1000 && w.IsPublic && w.DataCenter.Value?.RowId is >=1 and <= 3).ToArray())
+            foreach (var item in gameWorlds.Where(w => w.RowId < 1000 && w.IsPublic && w.DataCenter.Value?.RowId is >=1 and <= 4).ToArray())
             {
                 item.IsPublic = false;
             }
@@ -42,7 +42,7 @@ namespace Utils4CN
 
                 if (dc != null) {
                     dc.Name = new SeString(mydc.Name);
-                    dc.Region = (byte)4;
+                    dc.Region = (byte)7;
                 }
 
                 foreach (var wid in mydc.WorldIds)
