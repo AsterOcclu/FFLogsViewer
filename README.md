@@ -3,6 +3,8 @@
 支持中国服。
 Add support to Chinese DC.
 
+Repo: https://raw.githubusercontent.com/AsterOcclu/DalamudPluginListCN/main/FFLogsViewer.json
+
 
 # FFLogsViewer
 
