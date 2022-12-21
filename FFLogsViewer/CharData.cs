@@ -32,7 +32,7 @@ public class CharData
     public void SetInfo(string firstName, string lastName, string worldName)
     {
         this.FirstName = firstName;
-        this.LastName = lastName;
+        this.LastName = Utils4CN.Init.IsCN() ? string.Empty : lastName;
         this.WorldName = worldName;
     }
 
@@ -45,6 +45,13 @@ public class CharData
             return false;
         }
 
+        if (Utils4CN.Init.IsCN())
+        {
+            this.FirstName = playerCharacter.Name.TextValue;
+            this.WorldName = playerCharacter.HomeWorld.GameData.Name;
+            return true;
+        }
+
         this.FirstName = playerCharacter.Name.TextValue.Split(' ')[0];
         this.LastName = playerCharacter.Name.TextValue.Split(' ')[1];
         this.WorldName = playerCharacter.HomeWorld.GameData.Name.ToString();
@@ -53,7 +60,7 @@ public class CharData
 
     public bool IsInfoSet()
     {
-        return this.FirstName != string.Empty && this.LastName != string.Empty && this.WorldName != string.Empty;
+        return this.FirstName != string.Empty && (Utils4CN.Init.IsCN() || this.LastName != string.Empty) && this.WorldName != string.Empty;
     }
 
     public void FetchTargetChar()
@@ -137,8 +144,8 @@ public class CharData
             if (character.hidden == "true")
             {
                 this.IsDataLoading = false;
-                Service.MainWindow.SetErrorMessage(
-                    $"{this.FirstName} {this.LastName}@{this.WorldName}'s logs are hidden");
+                var name = Utils4CN.Init.IsCN() ? this.FirstName : $"{this.FirstName} {this.LastName}";
+                Service.MainWindow.SetErrorMessage($"{name}@{this.WorldName}'s logs are hidden");
                 return;
             }
 
@@ -177,6 +184,20 @@ public class CharData
         if (placeholder != null)
         {
             rawText = placeholder;
+        }
+
+        if (Utils4CN.Init.IsCN()) {
+            var wordsCN = rawText.Split("@");
+            if (wordsCN.Count() < 1) {
+                throw new ArgumentException("Invalid text.");
+            }
+
+            character.FirstName = wordsCN[0];
+            character.WorldName = wordsCN.Count() >= 2 ? wordsCN[1] : string.Empty;
+
+            this.FirstName = wordsCN[0];
+            this.WorldName = character.WorldName;
+            return true;
         }
 
         rawText = rawText.Replace("'s party for", " ");

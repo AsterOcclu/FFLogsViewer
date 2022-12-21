@@ -40,7 +40,7 @@ public class CharDataManager
             1 => "JP",
             2 => "NA",
             3 => "EU",
-            4 => "OC",
+            4 => "CN", // "Changed from OC"
             _ => null,
         };
     }

@@ -15,7 +15,9 @@
     <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <!-- <OutputPath>bin\$(Configuration)\</OutputPath> -->
+    <OutputPath>C:\Games\Plugins\FFLogsViewer\</OutputPath>
+    <noWarn>SA1134,SA1500,SA1509,SA1513</noWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,7 +28,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+    <DalamudLibPath>C:\Games\Dalamud.Updater\addon\Hooks\dev\</DalamudLibPath>
   </PropertyGroup>
 
   <ItemGroup>

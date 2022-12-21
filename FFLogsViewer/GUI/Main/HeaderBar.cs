@@ -31,6 +31,8 @@ public class HeaderBar
             this.isProfileLinkClicked = false;
         }
 
+        var isCN = Utils4CN.Init.IsCN();
+
         ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(4 * ImGuiHelpers.GlobalScale, ImGui.GetStyle().ItemSpacing.Y));
 
         var buttonsWidth = GetButtonsWidth();
@@ -51,18 +53,20 @@ public class HeaderBar
         var contentRegionAvailWidth = ImGui.GetContentRegionAvail().X;
         if (ImGui.GetWindowSize().X < minWindowSize || this.ResetSizeCount != 0)
         {
-            contentRegionAvailWidth = minWindowSize - (ImGui.GetStyle().WindowPadding.X * 2);
+            contentRegionAvailWidth = minWindowSize - (ImGui.GetStyle().WindowPadding.X * (isCN ? 1 : 2));
             this.ResetSizeCount--;
         }
 
-        var calcInputSize = (contentRegionAvailWidth - (ImGui.GetStyle().ItemSpacing.X * 2) - buttonsWidth) / 3;
+        var calcInputSize = (contentRegionAvailWidth - (ImGui.GetStyle().ItemSpacing.X * (isCN ? 1 : 2)) - buttonsWidth) / (isCN ? 2 : 3);
 
         ImGui.SetNextItemWidth(calcInputSize);
-        ImGui.InputTextWithHint("##FirstName", "First Name", ref Service.CharDataManager.DisplayedChar.FirstName, 15, ImGuiInputTextFlags.CharsNoBlank);
+        ImGui.InputTextWithHint("##FirstName", isCN ? "Name" : "First Name", ref Service.CharDataManager.DisplayedChar.FirstName, 30, ImGuiInputTextFlags.CharsNoBlank);
 
-        ImGui.SameLine();
-        ImGui.SetNextItemWidth(calcInputSize);
-        ImGui.InputTextWithHint("##LastName", "Last Name", ref Service.CharDataManager.DisplayedChar.LastName, 15, ImGuiInputTextFlags.CharsNoBlank);
+        if (!isCN) {
+            ImGui.SameLine();
+            ImGui.SetNextItemWidth(calcInputSize);
+            ImGui.InputTextWithHint("##LastName", "Last Name", ref Service.CharDataManager.DisplayedChar.LastName, 15, ImGuiInputTextFlags.CharsNoBlank);
+        }
 
         ImGui.SameLine();
         ImGui.SetNextItemWidth(calcInputSize);
@@ -191,8 +195,9 @@ public class HeaderBar
             {
                 if (Service.CharDataManager.DisplayedChar.IsDataReady)
                 {
+                    var name = Utils4CN.Init.IsCN() ? Service.CharDataManager.DisplayedChar.LoadedFirstName : $"{Service.CharDataManager.DisplayedChar.LoadedFirstName} {Service.CharDataManager.DisplayedChar.LoadedLastName}";
                     Util.CenterSelectable(
-                        $"Viewing {Service.CharDataManager.DisplayedChar.LoadedFirstName} {Service.CharDataManager.DisplayedChar.LoadedLastName}@{Service.CharDataManager.DisplayedChar.LoadedWorldName}'s logs",
+                        $"Viewing {name}@{Service.CharDataManager.DisplayedChar.LoadedWorldName}'s logs",
                         ref this.isProfileLinkClicked);
 
                     Util.SetHoverTooltip("Click to open on FF Logs");
@@ -230,6 +235,15 @@ public class HeaderBar
 
     private static float GetMinInputWidth()
     {
+        if (Utils4CN.Init.IsCN()) {
+            return new[]
+            {
+                ImGui.CalcTextSize("First Name").X,
+                ImGui.CalcTextSize("World").X,
+                ImGui.CalcTextSize(Service.CharDataManager.DisplayedChar.FirstName).X,
+                ImGui.CalcTextSize(Service.CharDataManager.DisplayedChar.WorldName).X,
+            }.Max() + (ImGui.GetStyle().FramePadding.X * 2);
+        }
         return new[]
         {
             ImGui.CalcTextSize("First Name").X,
@@ -243,6 +257,9 @@ public class HeaderBar
 
     private static float GetMinWindowSize()
     {
+        if (Utils4CN.Init.IsCN()) {
+            return ((GetMinInputWidth() + (ImGui.GetStyle().ItemSpacing.X * 1)) * 2) + GetButtonsWidth();
+        }
         return ((GetMinInputWidth() + (ImGui.GetStyle().ItemSpacing.X * 2)) * 3) + GetButtonsWidth();
     }
 }

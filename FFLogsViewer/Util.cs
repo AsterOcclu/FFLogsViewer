@@ -136,6 +136,10 @@ public class Util
 
     public static void OpenLink(CharData charData)
     {
+        if (Utils4CN.Init.IsCN()) {
+            OpenLink($"https://cn.fflogs.com/character/cn/{charData.WorldName}/{charData.FirstName}");
+            return;
+        }
         OpenLink($"https://fflogs.com/character/{CharDataManager.GetRegionName(charData.WorldName)}/{charData.WorldName}/{charData.FirstName} {charData.LastName}");
     }
 

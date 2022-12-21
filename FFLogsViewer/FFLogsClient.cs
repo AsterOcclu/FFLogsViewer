@@ -122,10 +122,11 @@ public class FFLogsClient
         }
 
         const string baseAddress = @"https://www.fflogs.com/api/v2/client";
+        var name = $"{charData.FirstName} {charData.LastName}".TrimEnd();
 
         var query = new StringBuilder();
         query.Append(
-            $"{{\"query\":\"query {{characterData{{character(name: \\\"{charData.FirstName} {charData.LastName}\\\"serverSlug: \\\"{charData.WorldName}\\\"serverRegion: \\\"{charData.RegionName}\\\"){{");
+            $"{{\"query\":\"query {{characterData{{character(name: \\\"{name}\\\"serverSlug: \\\"{charData.WorldName}\\\"serverRegion: \\\"{charData.RegionName}\\\"){{");
         query.Append("hidden ");
 
         var metric = Service.MainWindow.OverriddenMetric ?? Service.Configuration.Metric;

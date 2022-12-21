@@ -44,6 +44,8 @@ public sealed class FFLogsViewer : IDalamudPlugin
 
         Service.Interface.UiBuilder.OpenConfigUi += OpenConfigUi;
         Service.Interface.UiBuilder.Draw += this.windowSystem.Draw;
+
+        new Utils4CN.Init(pluginInterface).ReplaceDataIfCN();
     }
 
     public void Dispose()
